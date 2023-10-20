@@ -43,7 +43,8 @@ void monty_pstr(stack_t **stack, unsigned int line_num)
 {
 	stack_t *tmp_node = (*stack)->next;
 	/*after decleration of variables*/
-	while (tmp_node && tmp_node->n != 0 && (tmp_node->n > 0 && tmp_noode->n <= 127))
+	while (tmp_node && tmp_node->n != 0 && (tmp_node->n > 0
+				&& tmp_node->n <= 127))
 	{
 		printf("%c", tmp_node->n);
 		tmp_node = tmp_node->next;

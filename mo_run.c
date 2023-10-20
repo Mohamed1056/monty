@@ -1,6 +1,12 @@
 #include "monty.h"
 #include <string.h>
 
+void free_tokens(void);
+unsigned int tok_arr_len(void);
+int is_it_empty_line(char *line, char *delims);
+void (*get_op_func(char *opcode))(stack_t**, unsigned int);
+int run_monty(FILE *script_fd);
+
 /**
  * free_tokens - Fnction to free the global
  * op_toks array of strings.
@@ -121,7 +127,7 @@ int run_monty(FILE *script_fd)
 		op_toks = strtow(line, DELIMS);
 		if (op_toks == NULL)
 		{
-			if (is_empty_line(line, DELIMS))
+			if (is_it_empty_line(line, DELIMS))
 				continue;
 			free_stack(&stack);
 			return (malloc_error());
@@ -139,9 +145,9 @@ int run_monty(FILE *script_fd)
 			free_tokens();
 			break;
 		}
-		prev_tok_len = token_arr_len();
+		prev_tok_len = tok_arr_len();
 		op_func(&stack, line_number);
-		if (token_arr_len() != prev_tok_len)
+		if (tok_arr_len() != prev_tok_len)
 		{
 			if (op_toks && op_toks[prev_tok_len])
 				exit_status = atoi(op_toks[prev_tok_len]);

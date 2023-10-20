@@ -16,13 +16,11 @@ void monty_push(stack_t **stack, unsigned int line_num)
 		set_op_tok_error(malloc_error());
 		return;
 	}
-
 	if (op_toks[1] == NULL)
 	{
 		set_op_tok_error(no_int_error(line_num));
 		return;
 	}
-
 	for (x = 0; op_toks[1][x]; x++)
 	{
 		if (op_toks[1][x] == '-' && x == 0)
@@ -34,7 +32,6 @@ void monty_push(stack_t **stack, unsigned int line_num)
 		}
 	}
 	new_node->n = atoi(op_toks[1]);
-
 	if (check_mode(*stack) == STACK)
 	{
 		tmp_n = (*stack)->next;

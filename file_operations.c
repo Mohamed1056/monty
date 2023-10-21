@@ -11,9 +11,9 @@ void opn_f(char *f_name)
 	FILE *fd = fopen(f_name, "r");
 
 	if (f_name == NULL || fd == NULL)
-		err(2, f_name);
+		errors(2, f_name);
 
-	read_file(fd);
+	read_f(fd);
 	fclose(fd);
 }
 
@@ -32,7 +32,7 @@ void read_f(FILE *fd)
 
 	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
 	{
-		format = parse_line(buffer, line_number, format);
+		format = prs_line(buffer, line_number, format);
 	}
 	free(buffer);
 }
@@ -54,7 +54,7 @@ int prs_line(char *buffer, int line_number, int format)
 	const char *delim = "\n ";
 
 	if (buffer == NULL)
-		err(4);
+		errors(4);
 
 	opcode = strtok(buffer, delim);
 	if (opcode == NULL)
@@ -90,16 +90,16 @@ void gt_func(char *opcode, char *value, int ln, int format)
 		{"pint", prnt_top},
 		{"pop", pop_top},
 		{"nop", nop},
-		{"swap", swap_nodes},
-		{"add", add_nodes},
-		{"sub", sub_nodes},
-		{"div", div_nodes},
-		{"mul", mul_nodes},
-		{"mod", mod_nodes},
-		{"pchar", print_char},
-		{"pstr", print_str},
-		{"rotl", rotl},
-		{"rotr", rotr},
+		{"swap", swap_nod},
+		{"add", add_nod},
+		{"sub", sub_nod},
+		{"div", div_nod},
+		{"mul", mul_nod},
+		{"mod", mod_nod},
+		{"pchar", prnt_char},
+		{"pstr", prnt_str},
+		{"rotl", rotateleft},
+		{"rotr", rotateright},
 		{NULL, NULL}
 	};
 
@@ -135,7 +135,7 @@ void fun_call(op_func func, char *op, char *val, int ln, int format)
 	int j;
 
 	flg = 1;
-	if (strcmp(op, "push") == 0)j
+	if (strcmp(op, "push") == 0)
 	{
 		if (val != NULL && val[0] == '-')
 		{

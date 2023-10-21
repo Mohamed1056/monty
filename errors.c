@@ -73,7 +73,7 @@ void more_errors(int code, ...)
 			break;
 		case 8:
 			l_num = va_arg(km, unsigned int);
-			op = va_arg(ag, char *);
+			op = va_arg(km, char *);
 			fprintf(stderr, "L%d: can't %s, stack too short\n", l_num, op);
 			break;
 		case 9:
@@ -88,7 +88,7 @@ void more_errors(int code, ...)
 }
 
 /**
- * string_err - handles errors.
+ * str_errors - handles errors.
  * @code: The error codes are the following:
  * (10) ~> The number inside a node is outside ASCII bounds.
  * (11) ~> The stack is empty.

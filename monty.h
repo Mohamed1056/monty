@@ -61,24 +61,24 @@ void fun_call(op_func, char *, char *, int, int);
 void prnt_top(stack_t **, unsigned int);
 void pop_top(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
-void swap_nodes(stack_t **, unsigned int);
+void swap_nod(stack_t **, unsigned int);
 
 /*Math operations with nodes*/
-void add_nodes(stack_t **, unsigned int);
-void sub_nodes(stack_t **, unsigned int);
-void div_nodes(stack_t **, unsigned int);
-void mul_nodes(stack_t **, unsigned int);
-void mod_nodes(stack_t **, unsigned int);
+void add_nod(stack_t **, unsigned int);
+void sub_nod(stack_t **, unsigned int);
+void div_nod(stack_t **, unsigned int);
+void mul_nod(stack_t **, unsigned int);
+void mod_nod(stack_t **, unsigned int);
 
 /*String operations*/
-void print_char(stack_t **, unsigned int);
-void print_str(stack_t **, unsigned int);
-void rotl(stack_t **, unsigned int);
+void prnt_char(stack_t **, unsigned int);
+void prnt_str(stack_t **, unsigned int);
+void rotateleft(stack_t **, unsigned int);
 
 /*Error hanlding*/
 void errors(int code, ...);
-void more_errrors(int code, ...);
+void more_errors(int code, ...);
 void str_errors(int code, ...);
-void rotr(stack_t **, unsigned int);
+void rotateright(stack_t **, unsigned int);
 
 #endif

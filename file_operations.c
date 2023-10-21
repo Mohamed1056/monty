@@ -2,7 +2,7 @@
 
 /**
  * opn_f - opens a file
- * @file_name: the file namepath
+ * @f_name: the file namepath
  * Return: void
  */
 

@@ -47,7 +47,7 @@ void prnt_str(stack_t **stack, __attribute__((unused))unsigned int ln)
 }
 
 /**
- * rotatelift - Rotates the first node of the stack to the bottom.
+ * rotateleft - Rotates the first node of the stack to the bottom.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @ln: Interger representing the line number of of the opcode.
  */
